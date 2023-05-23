@@ -7,15 +7,15 @@ import Menu from '../components/Menu'
 const Single = () => {
   return (
     <div className='single'>
-      <div class="content">
+      <div className="content">
         <img src="https://picsum.photos/200/300" alt=""/>
-        <div class="user">
+        <div className="user">
           <img src="https://picsum.photos/200/300" alt=""/>
-          <div class="info">
+          <div className="info">
             <span>Shivam</span>
             <p>Posted 2 days ago</p>
           </div>
-          <div class="edit">
+          <div className="edit">
             <Link to={`/write?edit=2`}>
               <img src={Edit} alt=""/>
             </Link>
