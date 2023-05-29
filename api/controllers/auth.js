@@ -37,7 +37,7 @@ export const register = (req, res) =>{
 
 export const login = (req, res) =>{
     //CHECK USER
-    console.log("here --- logni");
+
     const q =  "SELECT * FROM users WHERE username = ?";
 
     db.query(q, [req.body.username], (err, data) => {
@@ -66,10 +66,8 @@ export const login = (req, res) =>{
 };
 
 export const logout = (req, res) => {
-    console.log("here --- logout");
+
     res.clearCookie("access_token", {
-        path:"/",
-        domain:"localhost",
         sameSite: "none",   
         secure: true
     }).status(200).json("User has been logged out")

@@ -61,7 +61,7 @@ const Home = () => {
                         <button>Read More</button>
                     </div>
                 </div>
-            ))};
+            ))}
         </div>
 
     </div>

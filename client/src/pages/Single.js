@@ -33,13 +33,15 @@ const Single = () => {
   
     const handleDelete = async () => {
       try {
-        await api.delete(`/posts/${postId}`);
+        await api.delete(`/posts/${postId}`, {
+          withCredentials: true
+        });
         navigate("/");
       } catch (err) {
         console.log(err);
       }
     }
-
+    
   return (
     <div className='single'>
       <div className="content">
