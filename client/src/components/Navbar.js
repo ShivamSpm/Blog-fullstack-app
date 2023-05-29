@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import logo from '../img/logo.png'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/authContext'
@@ -6,7 +6,7 @@ import { AuthContext } from '../context/authContext'
 const Navbar = () => {
 
   const {currentUser, logout} = useContext(AuthContext);
-
+  
   return (
     <div className='navbar'>
       <div className='container'>
