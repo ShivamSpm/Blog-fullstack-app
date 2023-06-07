@@ -12,7 +12,7 @@ app.use(cookieParser())
 
 
 app.use(cors({
-    origin: 'http://localhost:3000', // Replace with your client's origin
+    origin: ['http://localhost:3000', 'https://blog-fullstack-app-client.vercel.app/'], // Replace with your client's origin
     credentials: true
   }))
 

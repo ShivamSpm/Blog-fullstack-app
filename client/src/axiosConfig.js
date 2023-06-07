@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: 'http://localhost:8800/api/',
+    baseURL: 'https://blog-fullstack-app-self.vercel.app/api/',
     headers: {"Access-Control-Allow-Origin": "*"}
 });
