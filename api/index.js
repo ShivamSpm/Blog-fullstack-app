@@ -14,7 +14,7 @@ app.use(cookieParser())
 
 //https://blog-fullstack-app-kappa.vercel.app/
 app.use(cors({
-    origin: 'https://blog-fullstack-app-kappa.vercel.app/', // Replace with your client's origin
+    origin: 'https://blog-fullstack-app-kappa.vercel.app', // Replace with your client's origin
     credentials: true
   }));
 
