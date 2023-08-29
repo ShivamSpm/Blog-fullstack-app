@@ -11,13 +11,24 @@ const Write = () => {
   const [title, setTitle] = useState(state?.title || "");
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState(state?.cat || "");
-
+  
   const navigate = useNavigate();
+
   const upload = async () => {
+
     try {
+
       const formData = new FormData();
+      console.log(file);
       formData.append("file", file);
-      const res = await api.post("/upload", formData);
+      const res = await api.post("/upload", formData, {
+        withCredentials: true
+      }, {headers: {
+        'Content-Type': 'multipart/form-data'
+      }});
+
+      console.log("res");
+      console.log(res);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -27,6 +38,7 @@ const Write = () => {
   const handleClick = async e => {
     e.preventDefault();
     const imgUrl = await upload();
+    // console.log()
     try {
       state ? (
         await api.put(`/posts/${state.id}`,{
@@ -72,6 +84,7 @@ const Write = () => {
             </span>
             <input style={{display:'none'}} type="file" id='file' name='' onChange={e=>setFile(e.target.files[0])}/>
             <label className="file" htmlFor="file">Upload Image</label>
+            <span>Uploaded successfully</span>
             <div className="buttons">
               <button>Save as a Draft</button>
               <button onClick={handleClick}>Publish</button>

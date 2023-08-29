@@ -1,14 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import api from '../axiosConfig'
+import AWS from 'aws-sdk';
+
+const s3 = new AWS.S3({
+    accessKeyId: process.env.REACT_APP_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY_ID,
+    region: process.env.REACT_APP_REGION_NAME,
+});
 
 const Menu = ({cat}) => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
+            const bucketName = 'uploads-blog-website';
             try {
                 const res = await api.get(`/posts/?cat=${cat}`);
-                setPosts(res.data);
+
+                const postsWithImageUrls = res.data.map(post => {
+                    var params = {Bucket: bucketName, Key: post.img, Expires: 60*60};
+                    const signedURL = s3.getSignedUrl('getObject', params);
+                    return {...post, signedURL};
+                  });
+        
+                setPosts(postsWithImageUrls);
             } catch (err) {
                 console.log(err);
             }
@@ -50,7 +65,7 @@ const Menu = ({cat}) => {
         <h1>Other posts you may like</h1>
         {posts.map((post) => (
             <div className="post" key={post.id}>
-                <img src={`../upload/${post?.img}`} alt=""/>
+                <img src={post.signedURL} alt={post.title}/>
                 <h2>{post.title}</h2>
                 <button>Read More</button>
             </div>

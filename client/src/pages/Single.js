@@ -7,6 +7,14 @@ import api from '../axiosConfig'
 import moment from 'moment'
 import { AuthContext } from '../context/authContext'
 import DOMPurify from 'dompurify'; 
+import AWS from 'aws-sdk';
+
+const s3 = new AWS.S3({
+  accessKeyId: process.env.REACT_APP_ACCESS_KEY_ID,
+  secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY_ID,
+  region: process.env.REACT_APP_REGION_NAME,
+});
+
 
 const Single = () => {
 
@@ -22,9 +30,13 @@ const Single = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+          const bucketName = 'uploads-blog-website';
             try {
                 const res = await api.get(`/posts/${postId}`);
-                setPost(res.data);
+                var params = {Bucket: bucketName, Key: res.data.img, Expires: 60*60};
+                const signedURL = s3.getSignedUrl('getObject', params);
+                const postsWithImageUrls = {...res.data, signedURL};
+                setPost(postsWithImageUrls);
             } catch (err) {
                 console.log(err);
             }
@@ -47,18 +59,18 @@ const Single = () => {
       const doc = new DOMParser().parseFromString(html, "text/html");
       return doc.body.textContent
     }
-
+    console.log(post);
   return (
     <div className='single'>
       <div className="content">
-        <img src={`../upload/${post?.img}`} alt=""/>
+      <img src={post.signedURL} alt={post.title}/>
         <div className="user">
           {post.userImg && <img src={post.userImg} alt=""/>}
           <div className="info">
             <span>{post.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>
           </div>
-          {currentUser.username === post.username && <div className="edit">
+          {currentUser && currentUser.username === post.username && <div className="edit">
             <Link to={`/write?edit=${postId}`} state={post}>
               <img src={Edit} alt=""/>
             </Link>
