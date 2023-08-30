@@ -1,10 +1,13 @@
 $lightGreen : #b9e7e7;
-
+body{
+    margin: 0;
+    padding: 0;
+}
 .app {
     display: flex;
     justify-content: center;
     .container{
-        width: 1024px;
+        width: 100%;
         //Login and Register
         .link{
             text-decoration: none;
@@ -18,10 +21,9 @@ $lightGreen : #b9e7e7;
             height: 100vh;
             background-color: $lightGreen;
         
-
             h1{
                 font-size: 20px;
-                color: teal;
+                color: black;
                 margin-bottom: 20px;
             }
 
