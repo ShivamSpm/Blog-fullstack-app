@@ -15,7 +15,7 @@ app.use(cookieParser())
 //https://blog-fullstack-app-kappa.vercel.app
 //http://localhost:3000
 app.use(cors({
-    origin: 'http://localhost:3000', // Replace with your client's origin
+    origin: 'https://blog-fullstack-app-kappa.vercel.app', // Replace with your client's origin
     credentials: true
   }));
 
