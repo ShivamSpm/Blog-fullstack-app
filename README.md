@@ -1,6 +1,6 @@
 # Blog-fullstack-app
 <p align="center">
- <img height=200px src="./client/src/img/logo.png" alt="Blog Website Logo">
+ <a href="https://blog-fullstack-app-kappa.vercel.app/"> <img height=200px src="./client/src/img/logo.png" alt="Blog Website Logo"> </a>
 </p>
 
 <h1 align="center">Blog Full Stack Website</h1>
