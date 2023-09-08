@@ -4,6 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 import api from '../axiosConfig'
 import { useLocation, useNavigate } from 'react-router-dom';
 import moment from 'moment';
+import {FcApproval} from 'react-icons/fc'
 
 const Write = () => {
   const state = useLocation().state;
@@ -13,7 +14,7 @@ const Write = () => {
   const [cat, setCat] = useState(state?.cat || "");
   
   const navigate = useNavigate();
-
+  // console.log(file.name);
   const upload = async () => {
 
     try {
@@ -82,9 +83,18 @@ const Write = () => {
             <span>
               <b>Visibility: </b> Public
             </span>
-            <input style={{display:'none'}} type="file" id='file' name='' onChange={e=>setFile(e.target.files[0])}/>
-            <label className="file" htmlFor="file">Upload Image</label>
-            <span>Uploaded successfully</span>
+            <span style={{ display: 'flex', alignItems: 'center' }}>
+              <label className="file" htmlFor="file">Upload Image</label>
+              <input style={{display:'none'}} type="file" id='file' name='' onChange={e=>setFile(e.target.files[0])}/>
+              {file && 
+                  <> 
+                    <span style={{marginLeft:'10px', color:'black', alignItems:'center'}}>{file.name}</span> 
+                    <FcApproval style={{fontSize:'16px', marginLeft: '5px'}}/>
+                  </>
+              }
+            </span>   
+            
+
             <div className="buttons">
               <button>Save as a Draft</button>
               <button onClick={handleClick}>Publish</button>
