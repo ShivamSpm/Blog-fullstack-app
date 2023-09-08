@@ -40,9 +40,28 @@ I created this project to provide a platform for individuals passionate about wr
 -----------------------------------------
 
 ### Screenshots
-<img src=""/>
+* `Home Page`
+  
+<p align="center">
+ <img height=400px src="./client/Screenshots/Home_page1.PNG" alt="Home page img">
+</p>
 
+<br>
 
+* `Single Post Page`
+  
+<p align="center">
+ <img height=400px src="./client/Screenshots/Single_post1.PNG" alt="Single Post Page Img">
+ <img height=400px src="./client/Screenshots/Single_post2.PNG" alt="Single Post Page Img">
+</p>
+
+<br>
+
+* `Write Post Page`
+  
+<p align="center">
+ <img height=400px src="./client/Screenshots/Write_page.PNG" alt="Write Page Img">
+</p>
 
 
 
