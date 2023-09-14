@@ -2,9 +2,9 @@
  <a href="https://blog-fullstack-app-kappa.vercel.app/"> <img height=200px src="./client/src/img/logo.png" alt="Blog Website Logo"> </a>
 </p>
 
-<h1 align="center">Blog Full Stack Website</h1>
+<h1 align="center">Blog Full Stack Web App</h1>
 <div align="center">
-     <h4 align="center">This blog website is designed for users interested in writing their own posts across six     
+     <h4 align="center">This Blog Web App is designed for users interested in writing their own posts across six     
        categories, covering topics from food to technology.
      </h4><br/>
      <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/><img  
