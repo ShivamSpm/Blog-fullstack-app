@@ -15,10 +15,7 @@
 
 -----------------------------------------
 ### Overview
-Our project aims at allowing users to play android games using only their speech. We will be using speech-to-text technology to achieve this task. First, the user will place a ‘pressure point’ that is, a point on the screen whose coordinates are saved by the app. When the player speaks
-the word ‘porcupine’, a touch event will be executed at the pressure points location thus, making the game deal as if someone is playing with their fingers.
-Our aim is to help specially-abled players, get an equally immersive experience as that of normal players. Also, we plan to release this app on the Google Playstore in the coming future to allow anyone with an android device to play.
-
+I created this project to provide a platform for individuals passionate about writing and sharing their blogs. As someone who loves reading technical blog posts and writing few myself, I think this website would be very helpful for the people who share the same passion as mine. I have added 6 categories - Art, Science, Technology, Cinema, Design and Food, into which people can create blog post. My main motivation behind developing this website was, I wanted a single place to save blogs I find interesting from different sources.
 
 -----------------------------------------
 
